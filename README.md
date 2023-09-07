@@ -35,13 +35,13 @@
 
 ## Basic
 
-Basic syntax is **`$action="event:selector"`** similar on how we do a basic **`onclick="click()"`** event in HTML
+USML uses a simple syntax **`$action="event:selector"`** similar on how we do a basic `onclick="click()"` event handler in plain HTML. This is consist of two(3) parts, a `declaration` **`$action`**, an `assignment` **`=`** and a `handler` **`"event:selector"`**.
 
-- A `$` sign to define/access `USML` inspired by [jquery](https://jquery.com/)
-- A `action` to be performed on the element
-- A `event` a trigger for sending `http` request or emitting a `USMLEvent`
-- A `:` to separate **event** and **selector**
-- A `selector` to "**query**" HTML elements or "**value**" of a given event i.e. `url` for http request
+- A **`$`** sign to define/access `USML` inspired by [jquery](https://jquery.com/)
+- A **`action`** to be performed on the element
+- A **`event`** to emit an `USMLEvent` or trigger an `http` request inspired by [htmx](https://htmx.org/)
+- A **`:`** to separate **event** and **selector**
+- A **`selector`** to "**query**" HTML elements or "**value**" of a given event i.e. `url` for http request
 
 ## Usage
 
