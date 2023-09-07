@@ -33,6 +33,16 @@
     </body>
     ```
 
+## Basic
+
+Basic syntax is **`$action="event:selector"`** similar on how we do a basic **`onclick="click()"`** event in HTML
+
+- A `$` sign to define/access `USML` inspired by [jquery](https://jquery.com/)
+- A `action` to be performed on the element
+- A `event` a trigger for sending `http` request or emitting a `USMLEvent`
+- A `:` to separate **event** and **selector**
+- A `selector` to "**query**" HTML elements or "**value**" of a given event i.e. `url` for http request
+
 ## Usage
 
 USML provides a range of attributes to enhance interactivity, such as `$click`, `$hover`, `$hide`, `$toggle`, and more. These attributes allow you to define behaviors without the need for JavaScript code.
