@@ -9,24 +9,24 @@
 ## Features
 
 - **Script-Free HTML**
-    USML enables the creation of dynamic web content directly within HTML, eliminating the need for inline JavaScript.
+    UXML enables the creation of dynamic web content directly within HTML, eliminating the need for inline JavaScript.
 - **Simplified Interactivity**
     Easily add interactive features to your web pages using HTML attributes and minimal configuration.
 - **Cross-Browser Compatibility**
-    USML is compatible with modern web browsers, ensuring a consistent user experience.
+    UXML is compatible with modern web browsers, ensuring a consistent user experience.
 - **Lightweight**
-    USML is incredibly lightweight, weighing in **`20 times less`** size than popular libraries like ReactJS.
+    UXML is incredibly lightweight, weighing in **`20 times less`** size than popular libraries like ReactJS.
 - **No Virtual DOM**
-    USML doesn't rely on a virtual DOM. This results in a more efficient and simplified rendering process.
+    UXML doesn't rely on a virtual DOM. This results in a more efficient and simplified rendering process.
 - **Shallow Learning Curve**
-    USML offers a shallow learning curve, making it accessible to developers of all skill levels. If you know **HTML**, you can start using USML right away.
+    UXML offers a shallow learning curve, making it accessible to developers of all skill levels. If you know **HTML**, you can start using UXML right away.
 
 ## Getting Started
 
 1. Include the UXML library in your HTML document:
 
     ```html
-    <script src="https://unpkg.com/uxml@0.1.0-beta.0/uxml.js"></script>
+    <script src="https://unpkg.com/uxml.js@0.1.0-beta.0/uxml.js"></script>
     ```
 
 2. Use UXML attributes within your HTML elements to add interactivity:
@@ -41,9 +41,9 @@
 
 UXML uses a simple syntax **`$action="event:selector"`** similar on how we do a basic `onclick="click()"` event handler in plain HTML. This is consist of three(**3**) parts, a *declaration* **`$action`**, an *assignment* **`=`** and a *handler* **`"event:selector"`**.
 
-- A **`$`** sign to define/access `USML` inspired by [jquery](https://jquery.com/)
+- A **`$`** sign to define/access `UXML` inspired by [jquery](https://jquery.com/)
 - A **`action`** to be performed on the element inspired by [angularjs](https://angularjs.org/)
-- A **`event`** to emit an `USMLEvent` or trigger an `http` request inspired by [htmx](https://htmx.org/)
+- A **`event`** to emit an `UXMLEvent` or trigger an `http` request inspired by [htmx](https://htmx.org/)
 - A **`:`** to separate **event** and **selector**
 - A **`selector`** to "**query**" HTML elements or "**value**" of a given event i.e. `url` for http request
 
