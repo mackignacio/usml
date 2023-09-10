@@ -73,6 +73,15 @@ function httpHEAD() {
   return (url: string, type: ResponseType) => httpPromise(createHttpRequest(url, method, type));
 }
 
+/**
+ *
+ * @returns
+ */
+function httpOPTIONS() {
+  const method = constants.HTTP.OPTIONS;
+  return (url: string, type: ResponseType) => httpPromise(createHttpRequest(url, method, type));
+}
+
 function createHttpRequest(url: string, method: HTTPMethod, type: ResponseType, body: any = {}) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
@@ -90,6 +99,12 @@ function createHttpRequest(url: string, method: HTTPMethod, type: ResponseType, 
 // TODO: Create a function that dynamically create these HTTP methods function
 const http = {
   get: httpGET(),
+  post: httpPOST(),
+  put: httpPUT(),
+  patch: httpPATCH(),
+  delete: httpDELETE(),
+  head: httpHEAD(),
+  options: httpOPTIONS(),
 } as HTTPMethodFn<unknown>;
 
 /**
