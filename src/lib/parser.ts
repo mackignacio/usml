@@ -13,6 +13,7 @@ import {
   triggerVisibility,
   getUSMLAction,
   regExec,
+  getElementByTarget,
   stringToJSON,
   jsonToArray,
 } from "../utils";
@@ -87,6 +88,10 @@ function loadMouseEvents(el: HTMLElement, action: USMLAction, [_cmd, _target]: [
     trigger = triggerVisibility(el.parentElement, [_cmd, _target]);
   }
 
+  if (constants.USML_SUBMIT === _cmd) {
+    trigger = () => triggerSubmit([_cmd, _target]);
+  }
+
   if (!trigger && constants.USML_MOUSE_EVENT.includes(action as USMLMouseEvent)) {
     trigger = () => loadHandlers(el, [_cmd, _target]);
   }
@@ -98,6 +103,23 @@ function loadMouseEvents(el: HTMLElement, action: USMLAction, [_cmd, _target]: [
   el.addEventListener(getUsmlEvent(action), trigger);
 }
 
+/**
+ *
+ * @param tuple
+ * @returns
+ */
+function triggerSubmit([_cmd, _target]: [string, string]) {
+  const element = getElementByTarget(_target);
+  if (!element) return;
+
+  const submitAttr = getUSMLAction(element, constants.USML_SUBMIT);
+  if (!submitAttr) return;
+
+  const parse = parseAttr(submitAttr);
+  if (!parse) return;
+
+  loadHandlers(element, parse);
+}
 
 /**
  *

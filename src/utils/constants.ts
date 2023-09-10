@@ -14,6 +14,7 @@ import {
   USMLVisibility,
   USMLModel,
   HTTPMethodKey,
+  USMLSubmit,
   USMLHidden,
   USMLVisible,
 } from "./types";
@@ -25,6 +26,7 @@ const USML_ITEM: USMLItem = "item";
 const USML_SWAP: USMLSwap = "swap";
 const USML_VALUE: USMLValue = "value";
 const USML_MODEL: USMLModel = "model";
+const USML_SUBMIT: USMLSubmit = "submit";
 const USML_DIRECTIVES: USMLDirective[] = [
   USML_DATA,
   USML_FOR,
@@ -32,6 +34,7 @@ const USML_DIRECTIVES: USMLDirective[] = [
   USML_SWAP,
   USML_VALUE,
   USML_MODEL,
+  USML_SUBMIT,
 ];
 
 const USML_LOAD: USMLLoad = "load";
@@ -88,6 +91,7 @@ const HTTP: HTTPMethodKey = {
 const HTTP_LOW: HTTPMethodEvent[] = Object.keys(HTTP).map((method) => method.toLocaleLowerCase() as HTTPMethodEvent);
 const HTTP_PAYLOAD: HTTPMethodEvent[] = ["post", "put", "patch"];
 
+const INVALID_TAG = ["SCRIPT", "META", "TITLE"];
 
 export default {
   NOOP: () => {},
@@ -97,6 +101,7 @@ export default {
   USML_ITEM,
   USML_SWAP,
   USML_MODEL,
+  USML_SUBMIT,
   USML_ACTION,
   USML_MOUSE_EVENT,
   USML_MOUSE_EVENT_OBJ,

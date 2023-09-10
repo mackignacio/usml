@@ -10,6 +10,17 @@ import constants from "./constants";
 export function getUSMLAction(target: HTMLElement, attr: USMLAction) {
   return target.getAttribute(`${constants.USML_PRE}${attr}`);
 }
+
+/**
+ *
+ * @param target
+ * @returns
+ */
+export function getElementByTarget(target: string): HTMLElement | null {
+  const selector = target.includes("#") ? target.replace("#", "") : target;
+  return document.getElementById(selector) ?? document.querySelector(selector);
+}
+
 /**
  *
  * @param condition
