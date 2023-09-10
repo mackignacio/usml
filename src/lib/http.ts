@@ -55,6 +55,15 @@ function httpPATCH() {
   return (url: string, type: ResponseType, body: any) => httpPromise(createHttpRequest(url, method, type, body));
 }
 
+/**
+ *
+ * @returns
+ */
+function httpDELETE() {
+  const method = constants.HTTP.DELETE;
+  return (url: string, type: ResponseType, body: any) => httpPromise(createHttpRequest(url, method, type, body));
+}
+
 function createHttpRequest(url: string, method: HTTPMethod, type: ResponseType, body: any = {}) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
