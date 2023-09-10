@@ -28,6 +28,15 @@ function httpGET() {
   return (url: string, type: ResponseType) => httpPromise(createHttpRequest(url, method, type));
 }
 
+/**
+ *
+ * @returns
+ */
+function httpPOST() {
+  const method = constants.HTTP.POST;
+  return (url: string, type: ResponseType, body: any) => httpPromise(createHttpRequest(url, method, type, body));
+}
+
 function createHttpRequest(url: string, method: HTTPMethod, type: ResponseType, body: any = {}) {
   const xhr = new XMLHttpRequest();
   xhr.open(method, url);
