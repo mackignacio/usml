@@ -1,5 +1,81 @@
 import constants from "../utils/constants";
 
+export function loadData(el: HTMLElement, data: any | any[]) {
+  // Convert non-array data to array
+  data = Array.isArray(data) ? data : [data];
+  // Map all elements child
+  Array.from(el.children).forEach(dataDirective(el, data));
+}
+
+export function dataDirective(parent: HTMLElement, data: any | any[]) {
+  return (el: Element) => {
+    const dataAttr = getUSMLAction(parent, constants.USML_DATA);
+
+    // Null check
+    if (!dataAttr) return;
+
+    let isModified = false;
+
+    // Loop through all data and apply it to each children
+    for (const json of data) {
+      // Clone current element
+      const clone = el.cloneNode(true) as HTMLElement;
+
+      // Check and perform `for` directive
+      const hasItem = forDirective(parent, clone, dataAttr, json);
+
+      // Check if clone element is modified
+      isModified = hasItem || hasValue;
+
+      if (isModified) {
+        // Add modified clone element to parent element
+        parent.appendChild(clone);
+      }
+    }
+
+    if (isModified) {
+      //  Remove current element to parent if modified
+      parent.removeChild(el);
+    }
+  };
+}
+
+/**
+ *
+ * @param el
+ * @param elements
+ * @param data
+ */
+export function forDirective(parent: HTMLElement, el: HTMLElement, key: string, json: { [x: string]: any } = {}) {
+  // Get current element `usml-for` attribute
+  const forAttr = getUSMLAction(parent, constants.USML_FOR);
+
+  // Null checks
+  if (forAttr === null) return false;
+
+  return forItemDirective(el, forAttr, key, json);
+}
+
+/**
+ *
+ * @param el
+ * @param forKey
+ * @param key
+ * @param json
+ * @returns
+ */
+function forItemDirective(el: HTMLElement, forKey: string, key: string, json: { [x: string]: any } = {}) {
+  // Get current element `usml-item` attribute
+  const forItem = getUSMLAction(el, constants.USML_ITEM);
+
+  // If forItem is null we will not continue
+  // If `usm-for` value is not equal to `usml-data` of current element
+  // It means it is not the right data for the element to consume
+  if (!forItem || forItem !== forKey) return false;
+
+  return true;
+}
+
 /**
  *
  * @param el

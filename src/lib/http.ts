@@ -126,6 +126,12 @@ function httpResponseHandler(el: HTMLElement) {
   return (data: any | any[]) => {
     // Load element with `$swap` directive
     swapDirective(el, data);
+
+    // If no children will not proceed
+    if (el.children.length === 0) return;
+
+    // Load element with `$for` directive
+    loadData(el, data);
   };
 }
 
