@@ -48,6 +48,21 @@ function loadElement(el: HTMLElement, data: any | any[]) {
 }
 
 /**
+ *
+ * @param children
+ */
+export function loadChildren(children: HTMLCollectionOf<Element>, data: any | any[] = []) {
+  // Loop through all child elements
+  for (let child of children) {
+    // Check for non script tag
+    if (!constants.INVALID_TAG.includes(child.tagName)) {
+      // Start recursion sequence
+      parser(child as HTMLElement, data);
+    }
+  }
+}
+
+/**
  * Parse
  * @param el
  * @returns
@@ -55,6 +70,12 @@ function loadElement(el: HTMLElement, data: any | any[]) {
 function parser(el: HTMLElement, data: any | any[] = []) {
   // load current element
   loadElement(el, data);
+
+  // If no more children get out of recursion
+  if (el.children.length === 0) return;
+
+  // Load element's children
+  loadChildren(el.children, data);
 }
 
 export default parser;
