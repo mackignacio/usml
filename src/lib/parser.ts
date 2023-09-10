@@ -46,3 +46,15 @@ function loadElement(el: HTMLElement, data: any | any[]) {
     if (loadActionHandler(el, action, attr, data)) continue;
   }
 }
+
+/**
+ * Parse
+ * @param el
+ * @returns
+ */
+function parser(el: HTMLElement, data: any | any[] = []) {
+  // load current element
+  loadElement(el, data);
+}
+
+export default parser;
