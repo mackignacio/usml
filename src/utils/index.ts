@@ -1,3 +1,13 @@
+import { USMLAction } from "./types";
+/**
+ *
+ * @param target
+ * @param attr
+ * @returns
+ */
+export function getUSMLAction(target: HTMLElement, attr: USMLAction) {
+  return target.getAttribute(`${constants.USML_PRE}${attr}`);
+}
 /**
  *
  * @param attr

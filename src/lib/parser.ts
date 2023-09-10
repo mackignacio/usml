@@ -33,3 +33,16 @@ function loadHandlers(el: HTMLElement, [_cmd, _target]: [string, string]) {
     (window[name] as any)(argvs);
   }
 }
+
+/**
+ * Load element with USML attributes and values
+ * @param el
+ */
+function loadElement(el: HTMLElement, data: any | any[]) {
+  for (const action of constants.USML_ACTION) {
+    const attr = getUSMLAction(el, action);
+
+    // Load actions with handlers
+    if (loadActionHandler(el, action, attr, data)) continue;
+  }
+}
