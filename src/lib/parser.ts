@@ -42,6 +42,9 @@ function loadElement(el: HTMLElement, data: any | any[]) {
   for (const action of constants.USML_ACTION) {
     const attr = getUSMLAction(el, action);
 
+    // Skip element if attr is null
+    if (attr === null) continue;
+
     // Load actions with handlers
     if (loadActionHandler(el, action, attr, data)) continue;
   }
