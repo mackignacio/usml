@@ -124,6 +124,8 @@ export function httpResponseError(err: any) {
  */
 function httpResponseHandler(el: HTMLElement) {
   return (data: any | any[]) => {
+    // Load element with `$swap` directive
+    swapDirective(el, data);
   };
 }
 
