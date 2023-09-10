@@ -145,10 +145,10 @@ function httpResponseHandler(el: HTMLElement) {
  */
 export default function (el: HTMLElement, [_cmd, _target]: [string, string], payload: { [x: string]: any }) {
   if (typeof _target !== "string") return;
-  const type = getUSMLAction(el, constants.USML_SWAP);
+  let type = getUSMLAction(el, constants.USML_SWAP);
 
   return matcher(_target, "http", () =>
-    http[_cmd as HTTPMethodEvent](_target, type ? "text" : "json", payload)
+    http[_cmd as HTTPMethodEvent](_target, type && !type?.includes("component") ? "text" : "json", payload)
       .then(httpResponseHandler(el))
       .catch(httpResponseError)
   );
