@@ -25,6 +25,9 @@ export function dataDirective(parent: HTMLElement, data: any | any[]) {
       // Check and perform `for` directive
       const hasItem = forDirective(parent, clone, dataAttr, json);
 
+      // Check and perform `value` directive
+      const hasValue = valueDirective(clone, dataAttr, json);
+
       // Check if clone element is modified
       isModified = hasItem || hasValue;
 
@@ -76,6 +79,28 @@ function forItemDirective(el: HTMLElement, forKey: string, key: string, json: { 
 
   // Replace interpolated string with json values
   stringInterpolation(el, { [key]: json });
+
+  return true;
+}
+
+/**
+ *
+ * @param el
+ * @param key
+ * @param json
+ * @returns
+ */
+function valueDirective(el: HTMLElement, key: string, json: { [x: string]: any } = {}) {
+  // Get current element `usml-value` attribute
+  const valueAttr = getUSMLAction(el, constants.USML_VALUE);
+
+  // Null check
+  if (!valueAttr) return false;
+
+  const data = traverseObj(valueAttr.split("."), { [key]: json });
+
+  // https://stackoverflow.com/questions/12989741/the-property-value-does-not-exist-on-value-of-type-htmlelement
+  (el as HTMLInputElement).value = data;
 
   return true;
 }
