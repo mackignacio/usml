@@ -1,4 +1,4 @@
-import { USMLAction, USMLVisibility } from "./types";
+import { USMLAction, USMLVisibility, AttrMatcher } from "./types";
 import constants from "./constants";
 
 /**
@@ -39,9 +39,21 @@ export function regExec(selector: string, type: AttrMatcher) {
     regex = /(?<name>\w+)\((?<argvs>.*?)\)/;
   }
 
+  if (type === "http") {
+    regex =
+      /^(?<protocol>https?:?\/{0,2})?(?<sub>[\w\.]*?)(?<domain>\w*?)(?<ext>\.\w*?)?(?<port>:?\d*?)(?<endpoint>[\/\w]*?)$/;
+  }
+
   return regex.exec(selector);
 }
 
+export function matcher(attr: string, type: AttrMatcher, cb: (matched: RegExpExecArray) => void) {
+  const matched = regExec(attr, type);
+
+  if (matched) cb(matched);
+
+  return !!matched ?? null;
+}
 
 /**
  *

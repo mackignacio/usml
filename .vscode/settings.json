@@ -9,6 +9,7 @@
     "core",
     "parser",
     "http",
-    "directive"
+    "directive",
+    "utils"
   ]
 }
