@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "esbuild src/usml.ts --bundle --outdir=lib --watch",
+    "tailwind": "npx tailwindcss -i ./css/styles.scss -o ./docs/styles.css --watch",
     "build": "esbuild src/usml.ts --bundle --outdir=. --target=es2020",
     "clean": "rimraf usml.js",
     "tgz": "rimraf --glob *.tgz",
@@ -41,6 +42,7 @@
   ],
   "devDependencies": {
     "esbuild": "^0.19.2",
-    "rimraf": "^5.0.1"
+    "rimraf": "^5.0.1",
+    "tailwindcss": "^3.3.3"
   }
 }

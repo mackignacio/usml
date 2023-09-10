@@ -12,6 +12,7 @@
     "directive",
     "utils",
     "script",
-    "lib"
+    "lib",
+    "css"
   ]
 }
