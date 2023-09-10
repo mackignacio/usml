@@ -87,6 +87,10 @@ function loadMouseEvents(el: HTMLElement, action: USMLAction, [_cmd, _target]: [
     trigger = triggerVisibility(el.parentElement, [_cmd, _target]);
   }
 
+  if (!trigger && constants.USML_MOUSE_EVENT.includes(action as USMLMouseEvent)) {
+    trigger = () => loadHandlers(el, [_cmd, _target]);
+  }
+
   if (!trigger) {
     trigger = constants.NOOP;
   }
