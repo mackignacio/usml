@@ -1,4 +1,14 @@
 {
   "cSpell.words": ["USML"],
-  "conventionalCommits.scopes": ["readme", "package", "config", "license", "vscode", "core", "parser", "http"]
+  "conventionalCommits.scopes": [
+    "readme",
+    "package",
+    "config",
+    "license",
+    "vscode",
+    "core",
+    "parser",
+    "http",
+    "directive"
+  ]
 }

@@ -42,6 +42,42 @@ export function regExec(selector: string, type: AttrMatcher) {
   return regex.exec(selector);
 }
 
+
+/**
+ *
+ * @param keys
+ * @param data
+ * @returns
+ */
+export function traverseObj(keys: any[], data: { [x: string]: any }): any {
+  if (keys.length === 0 || typeof data === "undefined") return data;
+  return traverseObj(keys, data[keys.shift()]);
+}
+
+/**
+ *
+ * @param el
+ * @param json
+ * @returns
+ */
+export function stringInterpolation(el: Element, json: { [x: string]: any } = {}) {
+  let textContent = el.textContent ?? "";
+
+  if (!textContent) return;
+
+  const matches = textContent.match(/(?:\{{2})(?<value>.*?)(?:\}{2})/gim);
+
+  matches?.forEach((match) => {
+    const prop = match.replace(/\{{2}|\}{2}/gm, "");
+    const data = traverseObj(prop.split("."), json);
+    textContent = textContent.replace(match, data);
+  });
+
+  el.textContent = textContent;
+
+  return el;
+}
+
 /**
  *
  * @param el

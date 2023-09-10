@@ -1,3 +1,4 @@
+import { getElementByTarget, getUSMLAction, parseAttr, stringInterpolation, traverseObj } from "../utils";
 import constants from "../utils/constants";
 
 export function loadData(el: HTMLElement, data: any | any[]) {
@@ -72,6 +73,9 @@ function forItemDirective(el: HTMLElement, forKey: string, key: string, json: { 
   // If `usm-for` value is not equal to `usml-data` of current element
   // It means it is not the right data for the element to consume
   if (!forItem || forItem !== forKey) return false;
+
+  // Replace interpolated string with json values
+  stringInterpolation(el, { [key]: json });
 
   return true;
 }
