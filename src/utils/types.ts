@@ -33,6 +33,12 @@ export type USMLItem = "item";
 
 export type USMLModel = "model";
 
+export type USMLSubmit = "submit";
+
+export type USMLComponent = "component";
+
+export type USMLProps = "props";
+
 export type USMLDirective =
   | USMLData
   | USMLSwap
@@ -40,6 +46,9 @@ export type USMLDirective =
   | USMLFor
   | USMLItem
   | USMLModel
+  | USMLSubmit
+  | USMLComponent
+  | USMLProps;
 
 export type USMLAction = USMLLoad | USMLMouseEvent | USMLDirective | USMLVisibility;
 

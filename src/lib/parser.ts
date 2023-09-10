@@ -20,6 +20,7 @@ import {
 import constants from "../utils/constants";
 import http from "./http";
 import { loadData } from "./directives";
+import { loadComponent } from "./components";
 
 /**
  *
@@ -52,6 +53,10 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
 
   if (constants.USML_DATA === action) {
     loadDataDirective(el, parse);
+  }
+
+  if (constants.USML_COMPONENT === action) {
+    loadComponent(el);
   }
 
   if (constants.USML_LOAD === action) {
