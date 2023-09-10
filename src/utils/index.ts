@@ -1,4 +1,6 @@
-import { USMLAction } from "./types";
+import { USMLAction, USMLValue } from "./types";
+import constants from "./constants";
+
 /**
  *
  * @param target
@@ -38,4 +40,15 @@ export function regExec(selector: string, type: AttrMatcher) {
   }
 
   return regex.exec(selector);
+}
+
+/**
+ *
+ * @param el
+ * @param attr
+ * @returns
+ */
+export function setVisibility(el: HTMLElement, attr: USMLValue) {
+  const visibility = attr === constants.USML_HIDDEN ? constants.USML_HIDDEN : constants.USML_VISIBLE;
+  el.style.visibility = visibility;
 }

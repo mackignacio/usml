@@ -1,6 +1,23 @@
 import {
+  USMLVisibility,
+} from "../utils/types";
+import {
+  setVisibility,
   regExec,
 } from "../utils";
+import constants from "../utils/constants";
+
+/**
+ *
+ * @param el
+ * @param action
+ */
+function loadStandAloneAction(el: HTMLElement, action: USMLAction) {
+  // Current element only has an usml attribute name with no value i.e `usml-hidden` instead of `usml-hidden="value"`
+  if (constants.USML_VISIBILITY.includes(action as USMLVisibility)) {
+    setVisibility(el, action as USMLVisibility);
+  }
+}
 
 /**
  *
@@ -41,6 +58,10 @@ function loadHandlers(el: HTMLElement, [_cmd, _target]: [string, string]) {
 function loadElement(el: HTMLElement, data: any | any[]) {
   for (const action of constants.USML_ACTION) {
     const attr = getUSMLAction(el, action);
+
+    // Load stand alone action that doesn't require any handler
+    // Accepts empty string but not null
+    if (attr !== null) loadStandAloneAction(el, action as USMLValue);
 
     // Skip element if attr is null
     if (attr === null) continue;
