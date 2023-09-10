@@ -21,10 +21,25 @@ export type USMLVisibility = USMLHidden | USMLVisible;
 
 export type USMLLoad = "load";
 
+export type USMLData = "data";
+
+export type USMLFor = "for";
+
 export type USMLSwap = "swap";
+
+export type USMLValue = "value";
+
+export type USMLItem = "item";
 
 export type USMLModel = "model";
 
+export type USMLDirective =
+  | USMLData
+  | USMLSwap
+  | USMLValue
+  | USMLFor
+  | USMLItem
+  | USMLModel
 
 export type USMLAction = USMLLoad | USMLMouseEvent | USMLDirective | USMLVisibility;
 

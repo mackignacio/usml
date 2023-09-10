@@ -1,4 +1,4 @@
-import { USMLAction, USMLVisibility, AttrMatcher } from "./types";
+import { USMLAction, USMLVisibility, AttrMatcher, USMLMouseEvent } from "./types";
 import constants from "./constants";
 
 /**
@@ -10,6 +10,15 @@ import constants from "./constants";
 export function getUSMLAction(target: HTMLElement, attr: USMLAction) {
   return target.getAttribute(`${constants.USML_PRE}${attr}`);
 }
+/**
+ *
+ * @param condition
+ * @returns
+ */
+export function showHide(condition: boolean) {
+  return condition ? constants.USML_VISIBLE : constants.USML_HIDDEN;
+}
+
 /**
  *
  * @param attr
@@ -111,6 +120,32 @@ export function setVisibility(el: HTMLElement, attr: USMLVisibility) {
   el.style.visibility = visibility;
 }
 
+function toggleVisibility(target: HTMLElement, cmd: string) {
+  const isHidden = target.style.visibility === constants.USML_HIDDEN;
+  const isToggled = constants.USML_TOGGLE === cmd;
+  target.style.visibility = isToggled ? showHide(isToggled && isHidden) : showHide(constants.USML_SHOW === cmd);
+}
+
+/**
+ *
+ * @param target
+ * @param cmd
+ * @returns
+ */
+export function triggerVisibility(parent: HTMLElement | null, [cmd, selector]: [string, string]) {
+  return () => {
+    if (parent === null) return;
+
+    const target = selector.includes(".") ? parent.querySelectorAll(selector) : parent.querySelector(selector);
+
+    if (target === null) return;
+
+    if (target instanceof NodeList) return target.forEach((el) => toggleVisibility(el as HTMLElement, cmd));
+
+    toggleVisibility(target as HTMLElement, cmd);
+  };
+}
+
 /**
  *
  * @param data
@@ -124,4 +159,12 @@ export function stringToJSON(data: string) {
     .replace(/(\w+):/g, `"$1": `);
 
   return JSON.parse(replaced);
+}
+
+/**
+ *
+ * @param json
+ */
+export function jsonToArray(json: { [x: string]: any }) {
+  return Array.isArray(json) ? json : [json];
 }

@@ -13,8 +13,12 @@ import {
   triggerVisibility,
   getUSMLAction,
   regExec,
+  stringToJSON,
+  jsonToArray,
 } from "../utils";
 import constants from "../utils/constants";
+import http from "./http";
+import { loadData } from "./directives";
 
 /**
  *
@@ -45,11 +49,30 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
     loadMouseEvents(el, action, parse);
   }
 
+  if (constants.USML_DATA === action) {
+    loadDataDirective(el, parse);
+  }
+
   if (constants.USML_LOAD === action) {
     loadHandlers(el, parse);
   }
 }
 
+/**
+ *
+ * @param el
+ * @param tuple
+ * @returns
+ */
+function loadDataDirective(el: HTMLElement, [_cmd, _target]: [string, string]) {
+  const data = getUSMLAction(el, constants.USML_VALUE);
+
+  // Null check
+  if (!data) return;
+
+  const parsed = stringToJSON(data);
+  loadData(el, jsonToArray(parsed));
+}
 
 /**
  *
