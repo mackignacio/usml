@@ -1,8 +1,17 @@
 import {
+  HTTPMethodEvent,
+  USMLAction,
+  USMLMouseEvent,
+  USMLValue,
   USMLVisibility,
+  USMLVisibilityEvent,
 } from "../utils/types";
 import {
+  getUsmlEvent,
   setVisibility,
+  parseAttr,
+  triggerVisibility,
+  getUSMLAction,
   regExec,
 } from "../utils";
 import constants from "../utils/constants";
@@ -32,9 +41,34 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
 
   if (!parse) return true;
 
+  if (constants.USML_MOUSE_EVENT.includes(action as USMLMouseEvent)) {
+    loadMouseEvents(el, action, parse);
+  }
+
   if (constants.USML_LOAD === action) {
     loadHandlers(el, parse);
   }
+}
+
+
+/**
+ *
+ * @param el
+ * @param action
+ * @param param2
+ */
+function loadMouseEvents(el: HTMLElement, action: USMLAction, [_cmd, _target]: [string, string]) {
+  let trigger = null;
+
+  if (constants.USML_EVENT.includes(_cmd as USMLVisibilityEvent)) {
+    trigger = triggerVisibility(el.parentElement, [_cmd, _target]);
+  }
+
+  if (!trigger) {
+    trigger = constants.NOOP;
+  }
+
+  el.addEventListener(getUsmlEvent(action), trigger);
 }
 
 

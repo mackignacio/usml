@@ -28,6 +28,16 @@ export function parseAttr(attr: string): [string, string] | null {
 
 /**
  *
+ * @param event
+ */
+export function getUsmlEvent(event: USMLAction) {
+  return constants.USML_MOUSE_EVENT.includes(event as USMLMouseEvent)
+    ? constants.USML_MOUSE_EVENT_OBJ[event as USMLMouseEvent]
+    : event;
+}
+
+/**
+ *
  * @param selector
  * @param type
  * @returns
