@@ -3,3 +3,5 @@ export type HTTPMethodKey = { [k in HTTPMethod]: HTTPMethod };
 export type USMLLoad = "load";
 
 export type USMLSwap = "swap";
+
+export type USMLModel = "model";

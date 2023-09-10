@@ -8,6 +8,7 @@ import {
 } from "./types";
 
 const USML_SWAP: USMLSwap = "swap";
+const USML_MODEL: USMLModel = "model";
 const USML_LOAD: USMLLoad = "load";
 
 const USML_HIDDEN: USMLHidden = "hidden";
@@ -32,10 +33,14 @@ const HTTP_LOW: HTTPMethodEvent[] = Object.keys(HTTP).map((method) => method.toL
 
 
 export default {
+  USML_PRE,
   USML_SWAP,
+  USML_MODEL,
   USML_ACTION,
   USML_LOAD,
   USML_VISIBILITY,
+  USML_HIDDEN,
+  USML_VISIBLE,
   DOM,
   HTTP: {
     ...HTTP,

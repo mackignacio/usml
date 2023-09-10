@@ -89,6 +89,8 @@ function createHttpRequest(url: string, method: HTTPMethod, type: ResponseType, 
   const isJSON = typeof body === "object";
   const contentType = isJSON ? "application/json; charset=utf-8" : "application/x-www-form-urlencoded";
 
+  if (Object.keys(body).length > 0 && !isJSON) body = stringToJSON(body);
+
   xhr.setRequestHeader("Content-Type", contentType);
   xhr.responseType = type;
   xhr.send(JSON.stringify(body));

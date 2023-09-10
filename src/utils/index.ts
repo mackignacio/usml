@@ -1,4 +1,4 @@
-import { USMLAction, USMLValue } from "./types";
+import { USMLAction, USMLVisibility } from "./types";
 import constants from "./constants";
 
 /**
@@ -48,7 +48,22 @@ export function regExec(selector: string, type: AttrMatcher) {
  * @param attr
  * @returns
  */
-export function setVisibility(el: HTMLElement, attr: USMLValue) {
+export function setVisibility(el: HTMLElement, attr: USMLVisibility) {
   const visibility = attr === constants.USML_HIDDEN ? constants.USML_HIDDEN : constants.USML_VISIBLE;
   el.style.visibility = visibility;
+}
+
+/**
+ *
+ * @param data
+ * @returns
+ */
+export function stringToJSON(data: string) {
+  //  https://stackoverflow.com/questions/9637517/parsing-relaxed-json-without-eval
+  const replaced = data
+    .replace(/['|"](\w)/g, `"$1`)
+    .replace(/(\w)['|"]/g, `$1"`)
+    .replace(/(\w+):/g, `"$1": `);
+
+  return JSON.parse(replaced);
 }

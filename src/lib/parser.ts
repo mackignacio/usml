@@ -37,6 +37,27 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
   }
 }
 
+
+/**
+ *
+ * @param children
+ * @returns
+ */
+function getHttpPayload(children: HTMLCollection) {
+  const payload: { [x: string]: any } = {};
+
+  for (const child of children) {
+    const value = (child as HTMLInputElement)?.value;
+    const modelAttr = getUSMLAction(child as HTMLElement, constants.USML_MODEL);
+
+    if (!value || !modelAttr) continue;
+
+    payload[modelAttr] = value;
+  }
+
+  return payload;
+}
+
 /**
  *
  * @param el
@@ -44,7 +65,7 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
  */
 function loadHandlers(el: HTMLElement, [_cmd, _target]: [string, string]) {
   if (constants.HTTP.LOWERCASE.includes(_cmd as HTTPMethodEvent)) {
-    const payload = {};
+    const payload = constants.HTTP.PAYLOAD.includes(_cmd as HTTPMethodEvent) ? getHttpPayload(el.children) : {};
     http(el, [_cmd, _target], payload);
   }
 
