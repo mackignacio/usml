@@ -62,4 +62,4 @@ USML is distributed under the MIT License. Feel free to use, modify, and distrib
 
 ## Acknowledgments
 
-USML is inspired by [jquery](https://jquery.com/), [htmx](https://htmx.org/) and the need for cleaner more maintainable web code. We thank the open-source community for their contributions and support in making this project possible.
+USML stands on the shoulders of giants, drawing inspiration from [jquery](https://jquery.com/), [htmx](https://htmx.org/), [angularjs](https://angularjs.org/) and the need for cleaner more maintainable web code. We acknowledge the invaluable contributions of these innovative frameworks in shaping our journey towards excellence. Their pioneering work has illuminated our path, empowering us to reach new heights in our mission. We thank the open-source community for their contributions and support in making this project possible.
