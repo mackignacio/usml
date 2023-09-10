@@ -43,6 +43,11 @@ function loadActionHandler(el: HTMLElement, action: USMLAction, attr: string, da
  * @param tuple
  */
 function loadHandlers(el: HTMLElement, [_cmd, _target]: [string, string]) {
+  if (constants.HTTP.LOWERCASE.includes(_cmd as HTTPMethodEvent)) {
+    const payload = {};
+    http(el, [_cmd, _target], payload);
+  }
+
   const matchedFn = regExec(_target, "fn");
 
   if (matchedFn) {

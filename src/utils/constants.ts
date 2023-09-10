@@ -1,10 +1,13 @@
 import {
   USMLLoad,
+  USMLSwap,
   USMLVisibility,
+  HTTPMethodKey,
   USMLHidden,
   USMLVisible,
 } from "./types";
 
+const USML_SWAP: USMLSwap = "swap";
 const USML_LOAD: USMLLoad = "load";
 
 const USML_HIDDEN: USMLHidden = "hidden";
@@ -22,11 +25,20 @@ const DOM = {
   },
 };
 
-const USML_ACTION: USMLAction[] = [USML_LOAD];
+const HTTP: HTTPMethodKey = {
+  GET: "GET",
+};
+const HTTP_LOW: HTTPMethodEvent[] = Object.keys(HTTP).map((method) => method.toLocaleLowerCase() as HTTPMethodEvent);
+
 
 export default {
+  USML_SWAP,
   USML_ACTION,
   USML_LOAD,
   USML_VISIBILITY,
   DOM,
+  HTTP: {
+    ...HTTP,
+    LOWERCASE: HTTP_LOW,
+  },
 };
