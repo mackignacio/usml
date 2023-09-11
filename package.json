@@ -9,6 +9,7 @@
   "scripts": {
     "start": "esbuild src/uxml.ts --bundle --outdir=lib --watch",
     "tailwind": "npx tailwindcss -i ./css/styles.scss -o ./docs/styles.css --watch",
+    "tailwind:build": "npx tailwindcss -i ./css/styles.scss -o ./docs/styles.css --minify",
     "build": "esbuild src/uxml.ts --bundle --outfile=uxml.js --target=es2020 --minify",
     "build:gzip": "node ./scripts/build.js",
     "clean": "rimraf uxml.js",
