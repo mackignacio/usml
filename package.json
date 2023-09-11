@@ -7,9 +7,9 @@
     "release": "./bin/release.js"
   },
   "scripts": {
-    "start": "esbuild src/usml.ts --bundle --outdir=lib --watch",
+    "start": "esbuild src/uxml.ts --bundle --outdir=lib --watch",
     "tailwind": "npx tailwindcss -i ./css/styles.scss -o ./docs/styles.css --watch",
-    "build": "esbuild src/usml.ts --bundle --outdir=. --target=es2020",
+    "build": "esbuild src/uxml.ts --bundle --outfile=uxml.js --target=es2020 --minify",
     "clean": "rimraf usml.js",
     "tgz": "rimraf --glob *.tgz",
     "major": "release --release=major",
