@@ -15,7 +15,7 @@
 - **Cross-Browser Compatibility**
   UXML is compatible with modern web browsers, ensuring a consistent user experience.
 - **Lightweight**
-  UXML is incredibly lightweight, weighing in **`20 times less`** size than popular libraries like ReactJS.
+  UXML is incredibly lightweight, weighing in **(~3k min.js gzip'd)** size, no dependency, very extendable, compatible to all major browser and `90%` smaller than popular libraries like [react](https://react.dev/).
 - **No Virtual DOM**
   UXML doesn't rely on a virtual DOM. This results in a more efficient and simplified rendering process.
 - **Shallow Learning Curve**
