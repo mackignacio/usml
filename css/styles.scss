@@ -51,8 +51,14 @@
       @apply tw-text-3xl tw-font-semibold tw-mb-2 tw-mt-4;
     }
 
+    .paragraph {
+      @apply tw-my-4;
+      line-height: 1.75rem;
+    }
+
     .highlighted {
-      @apply tw-bg-gray-200 tw-font-medium;
+      @apply tw-bg-gray-300 tw-font-medium tw-px-2 tw-rounded-md;
+      padding-bottom: 0.2rem;
     }
 
     .code-block {
