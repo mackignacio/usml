@@ -26,7 +26,7 @@
 1. Include the UXML library in your HTML document:
 
    ```html
-   <script src="https://unpkg.com/uxml.js@0.2.0/uxml.js"></script>
+   <script src="https://unpkg.com/uxml.js@0.1.0/uxml.js"></script>
    ```
 
 2. Use UXML attributes within your HTML elements to add interactivity:
