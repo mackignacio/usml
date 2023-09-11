@@ -2,21 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-.navbar-container {
-  @apply tw-max-w-screen-xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-py-4 md:tw-px-36;
-}
-
 .navbar {
-  @apply tw-hidden tw-w-full md:tw-container md:tw-block md:tw-w-auto;
+  @apply tw-bg-white tw-border-gray-200 dark:tw-bg-gray-900;
+  position: sticky;
+  top: 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-  .nav-group {
-    @apply tw-font-medium tw-flex tw-flex-col tw-p-4 md:tw-p-0 tw-mt-4 tw-border tw-border-gray-100 tw-rounded-lg tw-bg-gray-50 md:tw-flex-row md:tw-space-x-8 md:tw-mt-0 md:tw-border-0 md:tw-bg-white dark:tw-bg-gray-800 md:dark:tw-bg-gray-900 dark:tw-border-gray-700;
+  .navbar-container {
+    @apply tw-max-w-screen-xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-py-4 md:tw-px-36;
 
-    .nav-item {
-      @apply tw-block tw-py-2 tw-pl-3 tw-pr-4 tw-text-gray-900 tw-rounded hover:tw-bg-gray-100 md:hover:tw-bg-transparent md:tw-border-0 md:hover:tw-text-blue-700 md:tw-p-0 dark:tw-text-white md:dark:hover:tw-text-blue-500 dark:hover:tw-bg-gray-700 dark:hover:tw-text-white md:dark:hover:tw-bg-transparent;
+    .navbar-menu {
+      @apply tw-hidden tw-w-full md:tw-container md:tw-block md:tw-w-auto;
 
-      &.active {
-        @apply tw-text-white tw-bg-blue-700 md:tw-bg-transparent md:tw-text-green-500 md:tw-p-0 dark:tw-text-white md:dark:tw-text-blue-500;
+      .nav-group {
+        @apply tw-font-medium tw-flex tw-flex-col tw-p-4 md:tw-p-0 tw-mt-4 tw-border tw-border-gray-100 tw-rounded-lg tw-bg-gray-50 md:tw-flex-row md:tw-space-x-8 md:tw-mt-0 md:tw-border-0 md:tw-bg-white dark:tw-bg-gray-800 md:dark:tw-bg-gray-900 dark:tw-border-gray-700;
+
+        .nav-item {
+          @apply tw-block tw-py-2 tw-pl-3 tw-pr-4 tw-text-gray-900 tw-rounded hover:tw-bg-gray-100 md:hover:tw-bg-transparent md:tw-border-0 md:hover:tw-text-blue-700 md:tw-p-0 dark:tw-text-white md:dark:hover:tw-text-blue-500 dark:hover:tw-bg-gray-700 dark:hover:tw-text-white md:dark:hover:tw-bg-transparent;
+
+          &.active {
+            @apply tw-text-white tw-bg-blue-700 md:tw-bg-transparent md:tw-text-green-500 md:tw-p-0 dark:tw-text-white md:dark:tw-text-blue-500;
+          }
+        }
       }
     }
   }
