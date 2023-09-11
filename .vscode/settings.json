@@ -13,6 +13,7 @@
     "utils",
     "script",
     "lib",
-    "css"
+    "css",
+    "signal"
   ]
 }
