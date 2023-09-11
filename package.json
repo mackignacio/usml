@@ -1,7 +1,7 @@
 {
   "name": "uxml.js",
   "version": "0.1.0-beta.0",
-  "description": "UXML is a lightweight JavaScript library designed to streamline web development by reducing the reliance on embedded JavaScript within HTML files. This library empowers developers to create dynamic and interactive web elements using simple, clean, and script-free HTML markup. UnScriptML is a groundbreaking JavaScript library that revolutionizes web development by challenging the conventional approach to embedded JavaScript within HTML files. It empowers developers with a transformative solution, allowing them to craft dynamic and interactive web elements with ease, all while maintaining a clean and script-free HTML structure. With UnScriptML, the complexities of traditional JavaScript are abstracted, paving the way for a more intuitive and efficient development process. This library doesn't just provide an alternative; it promotes a fundamental shift in the way we think about web development. By employing UnScriptML, developers can create web applications that boast elegant interactivity without the need for extensive JavaScript code. Its feature-rich attributes, including usml-click, usml-show, usml-hide, and more, enable developers to define behaviors directly within HTML markup, enhancing code readability and maintainability. UnScriptML is the perfect companion for both seasoned developers seeking a cleaner workflow and newcomers looking to enter the web development arena. It boasts cross-browser compatibility and a lightweight footprint, seamlessly integrating into modern web projects. Experience the future of web development, where script-free HTML markup takes center stage, and UnScriptML leads the way toward cleaner, more efficient code and exceptional user experiences.",
+  "description": "UXML is a lightweight JavaScript library designed to streamline web development by reducing the reliance on embedded JavaScript within HTML files. This library empowers developers to create dynamic and interactive web elements using simple, clean, and script-free HTML markup. UnScriptML is a groundbreaking JavaScript library that revolutionizes web development by challenging the conventional approach to embedded JavaScript within HTML files. It empowers developers with a simplified solution, allowing them to craft dynamic and interactive web elements with ease, all while maintaining a clean and script-free HTML structure. With UnScripted Extended Markup Language, the complexities of traditional JavaScript are abstracted, paving the way for a more intuitive and efficient development process. This library doesn't just provide an alternative; it promotes a fundamental shift in the way we think about web development. By employing UnScriptML, developers can create web applications that boast elegant interactivity without the need for extensive JavaScript code. Its feature-rich attributes, including $click, $show, $hide, and more, enable developers to define behaviors directly within HTML markup, enhancing code readability and maintainability. UnScriptML is the perfect companion for both seasoned developers seeking a cleaner workflow and newcomers looking to enter the web development arena. It boasts cross-browser compatibility and a lightweight footprint, seamlessly integrating into modern web projects. Experience the future of web development, where script-free HTML markup takes center stage, and UnScriptML leads the way toward cleaner, more efficient code and exceptional user experiences.",
   "main": "index.js",
   "bin": {
     "release": "./bin/release.js"
@@ -10,7 +10,7 @@
     "start": "esbuild src/uxml.ts --bundle --outdir=lib --watch",
     "tailwind": "npx tailwindcss -i ./css/styles.scss -o ./docs/styles.css --watch",
     "build": "esbuild src/uxml.ts --bundle --outfile=uxml.js --target=es2020 --minify",
-    "clean": "rimraf usml.js",
+    "clean": "rimraf uxml.js",
     "tgz": "rimraf --glob *.tgz",
     "major": "release --release=major",
     "major:alpha": "release major --preid=alpha",
@@ -30,7 +30,18 @@
     "prepack": "npm run build && node ./scripts/clean-package.js",
     "postpack": "npm run clean && npm run build && node ./scripts/restore-package.js"
   },
-  "keywords": [],
+  "keywords": [
+    "html",
+    "library",
+    "component",
+    "signal",
+    "react",
+    "reactive",
+    "simple",
+    "event",
+    "http",
+    "ajax"
+  ],
   "author": "Mac Ignacio",
   "repository": {
     "type": "git",
@@ -38,7 +49,7 @@
   },
   "license": "MIT",
   "files": [
-    "usml.js"
+    "uxml.js"
   ],
   "devDependencies": {
     "esbuild": "^0.19.2",

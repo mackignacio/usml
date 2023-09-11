@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["USML"],
+  "cSpell.words": ["outdir", "outfile", "preid", "UXML"],
   "conventionalCommits.scopes": [
     "readme",
     "package",

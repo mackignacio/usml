@@ -22,8 +22,8 @@ removableProps.forEach((prop) => delete packageData[prop]);
 
 // Define new scripts
 const scripts = {
-  clean: "rimraf usml.js",
-  build: "esbuild src/usml.ts --bundle --outdir=lib --target=es2020",
+  clean: "rimraf uxml.js",
+  build: "esbuild src/uxml.ts --bundle --outdir=lib --target=es2020",
   postpack: "node ./scripts/restore-package.js",
 };
 

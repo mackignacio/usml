@@ -1,4 +1,4 @@
-# Unscripted Extended Markup Language (UXML)
+# Unscripted eXtended Markup Language (UXML)
 
 <p align="center">
   <img width="100%" height="100%" src="https://github.com/mackignacio/uxml/blob/main/banner.png">
@@ -26,7 +26,7 @@
 1. Include the UXML library in your HTML document:
 
    ```html
-   <script src="https://unpkg.com/uxml.js@0.1.0-beta.0/uxml.js"></script>
+   <script src="https://unpkg.com/uxml.js@0.2.0/uxml.js"></script>
    ```
 
 2. Use UXML attributes within your HTML elements to add interactivity:
