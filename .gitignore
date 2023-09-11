@@ -13,7 +13,7 @@ logs
 results
 tmp
 *.tgz
-usml.js
+uxml.js
 
 # Coverage reports
 coverage

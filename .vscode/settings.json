@@ -15,6 +15,7 @@
     "lib",
     "css",
     "signal",
-    "component"
+    "component",
+    "git"
   ]
 }
