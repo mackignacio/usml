@@ -1,4 +1,5 @@
 import { getElementByTarget, getUSMLAction, parseAttr, stringInterpolation, traverseObj } from "../utils";
+import { loadComponent } from "./components";
 import constants from "../utils/constants";
 
 export function loadData(el: HTMLElement, data: any | any[]) {
@@ -130,6 +131,12 @@ export function swapDirective(el: HTMLElement, data: any | any[]) {
     return;
   }
 
+  // Check and perform `component` directive
+  if (_cmd === "component" && _target !== "" && _target !== null) {
+    return loadComponent(_target, data);
+  }
+
+  // Check if target is an element id
   if (_target.includes("#")) {
     const element = getElementByTarget(_target);
     if (!element) return;

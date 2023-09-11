@@ -7,27 +7,23 @@ const components = new Map<string, HTMLElement>();
  *
  * @param el
  */
-export function loadComponent(el: HTMLElement) {
-  const name = getUSMLAction(el, constants.USML_COMPONENT);
+export function loadComponent(id: string, data?: { [x: string]: string }) {
+  const component = components.get(id);
 
   // Null check
-  if (!name) return;
-
-  // Set current element in component Map
-  components.set(name, el);
+  if (!component) return;
 
   // Get component props
-  const props = getUSMLAction(el, constants.USML_PROPS);
+  let props = data ?? getUSMLAction(component.el, constants.USML_PROPS);
 
-  // Null check
-  if (!props) return;
+  // Convert to json if props is string
+  props = typeof props === "string" ? stringToJSON(props) : props;
 
-  const json = stringToJSON(props);
+  // Null check and check if component has children
+  if (!props || typeof props === "string" || component.el.children.length === 0) return;
 
-  for (const child of el.children) {
-    // Replace interpolated string with json values
-    stringInterpolation(child, { props: json });
-  }
+  // Update component props
+  component.props = props;
 }
 
 export default components;
