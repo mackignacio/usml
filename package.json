@@ -45,6 +45,7 @@
     "ajax"
   ],
   "author": "Mac Ignacio",
+  "homepage": "https://mackignacio.github.io/uxml/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mackignacio/uxml.git"
