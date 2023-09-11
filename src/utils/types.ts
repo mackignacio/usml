@@ -11,7 +11,7 @@ export type MouseEventObject = { [k in USMLMouseEvent]: string };
 
 export type USMLVisibilityEvent = "show" | "hide" | "toggle";
 
-export type USMLEvent = USMLVisibilityEvent | HTTPMethodEvent;
+export type USMLEvent = USMLVisibilityEvent | HTTPMethodEvent | USMLComponent | "target";
 
 export type USMLHidden = "hidden";
 
@@ -55,3 +55,9 @@ export type USMLAction = USMLLoad | USMLMouseEvent | USMLDirective | USMLVisibil
 export type AttrMatcher = "html" | "fn" | "http";
 
 export type ResponseType = "" | "arraybuffer" | "blob" | "document" | "json" | "text";
+
+export type Signal = {
+  el: HTMLElement;
+  subscribers: Set<(args: any | any[]) => void>;
+  props: { [x: string]: any };
+};

@@ -1,4 +1,4 @@
-import { USMLAction, USMLVisibility, AttrMatcher, USMLMouseEvent } from "./types";
+import { USMLAction, USMLVisibility, AttrMatcher, USMLMouseEvent, USMLEvent } from "./types";
 import constants from "./constants";
 
 /**
@@ -35,7 +35,7 @@ export function showHide(condition: boolean) {
  * @param attr
  * @returns
  */
-export function parseAttr(attr: string): [string, string] | null {
+export function parseAttr(attr: string): [USMLEvent, string] | null {
   const [cmd, ...rest] = attr.split(":");
   let target = rest.join(rest.length > 0 ? ":" : "");
   target = target === "" ? attr : target;
@@ -43,7 +43,7 @@ export function parseAttr(attr: string): [string, string] | null {
   // Null check
   if (!target && !attr) return null;
 
-  return [cmd, target];
+  return [cmd as USMLEvent, target];
 }
 
 /**
@@ -103,21 +103,31 @@ export function traverseObj(keys: any[], data: { [x: string]: any }): any {
  * @returns
  */
 export function stringInterpolation(el: Element, json: { [x: string]: any } = {}) {
-  let textContent = el.textContent ?? "";
+  let text = el.textContent;
 
-  if (!textContent) return;
+  if (!text) return;
 
-  const matches = textContent.match(/(?:\{{2})(?<value>.*?)(?:\}{2})/gim);
+  el.textContent = mapStringInterpolation(text, json);
+
+  return el;
+}
+
+/**
+ *
+ * @param text
+ * @param json
+ * @returns
+ */
+export function mapStringInterpolation(text: string, json: { [x: string]: any } = {}) {
+  const matches = text.match(/(?:\{{2})(?<value>.*?)(?:\}{2})/gim);
 
   matches?.forEach((match) => {
     const prop = match.replace(/\{{2}|\}{2}/gm, "");
     const data = traverseObj(prop.split("."), json);
-    textContent = textContent.replace(match, data);
+    text = text.replace(match, data);
   });
 
-  el.textContent = textContent;
-
-  return el;
+  return text;
 }
 
 /**

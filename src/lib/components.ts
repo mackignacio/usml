@@ -1,7 +1,32 @@
-import { getUSMLAction, stringInterpolation, stringToJSON } from "../utils";
+import { createSignal, updateTextEffect } from "./signal";
+import { getUSMLAction, stringToJSON } from "../utils";
 import constants from "../utils/constants";
+import { Signal } from "../utils/types";
 
-const components = new Map<string, HTMLElement>();
+const components = new Map<string, Signal>();
+
+export function registerComponent(el: HTMLElement) {
+  const name = getUSMLAction(el, constants.USML_COMPONENT);
+
+  // Null check
+  if (!name) return;
+
+  // Create signal object
+  const signal = createSignal(el);
+
+  for (const child of el.children) {
+    // Get element text
+    const text = child.textContent ?? "";
+
+    // Register text effect in signal subscribers
+    signal.subscribers.add(updateTextEffect(child, text));
+  }
+
+  // Set current element in component Map
+  components.set(name, signal);
+
+  loadComponent(name);
+}
 
 /**
  *
