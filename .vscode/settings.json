@@ -16,6 +16,7 @@
     "css",
     "signal",
     "component",
-    "git"
+    "git",
+    "asset"
   ]
 }
