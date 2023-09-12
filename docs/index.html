@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>uXml - script free html</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <script src="https://unpkg.com/uxml.js@0.1.0/uxml.js"></script>
-    <link href="styles.css" rel="stylesheet" />
-    <link href="prism.css" rel="stylesheet" />
-    <script src="prism.js"></script>
+    <script src="../lib/uxml.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/atom-one-dark.min.css" />
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css" />
+
+    <script>
+      hljs.addPlugin(new CopyButtonPlugin());
+      hljs.highlightAll();
+    </script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
@@ -19,43 +25,24 @@
         font-family: "Open Sans", sans-serif;
       }
     </style>
+    <link href="styles.css" rel="stylesheet" />
   </head>
   <body class="tw-h-full tw-w-full tw-bg-gray-100 tw-m-0 tw-p-0">
     <nav class="navbar">
       <div class="navbar-container">
         <a href="#" class="tw-flex tw-items-center">
-          <img src="images/brand.png" class="tw-h-8" alt="UXML Brand Logo" />
+          <img src="images/brand-black.png" class="tw-h-8" alt="UXML Brand Logo" />
         </a>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          class="hamburger"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
+        <button data-collapse-toggle="navbar-default" type="button" class="hamburger" aria-controls="navbar-default" aria-expanded="false">
           <span class="tw-sr-only"></span>
-          <svg
-            class="tw-w-5 tw-h-5"
-            aria-tw-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
+          <svg class="tw-w-5 tw-h-5" aria-tw-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
           </svg>
         </button>
         <div class="navbar-menu" id="navbar-default">
           <ul class="nav-group">
             <li>
-              <a href="https://github.com/mackignacio/uxml" target="_blank" class="nav-item" aria-current="page"
-                >Code</a
-              >
+              <a href="https://github.com/mackignacio/uxml" target="_blank" class="nav-item" aria-current="page">Code</a>
             </li>
             <li>
               <a href="#" class="nav-item"><!-- Docs --></a>
@@ -80,23 +67,25 @@
         <h2 class="header-1">Introduction</h2>
         <hr />
         <p class="paragraph">
-          <b>UXML</b> a lightweight, script-free component library designed specifically for web development within
-          HTML. UXML gives you the power of
-          <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank" class="link"
-            >REST</a
-          >,
-          <a href="https://www.w3schools.com/tags/ref_eventattributes.asp" target="_blank" class="link">HTML Events</a>,
-          <a href="https://www.w3schools.com/angular/angular_databinding.asp" target="_blank" class="link"
-            >Data Binding</a
-          >, <a href="https://api.jquery.com/category/effects/" target="_blank" class="link">JQuery Effects</a>,
-          <a href="https://www.w3schools.com/jquery/jquery_css_classes.asp" target="_blank" class="link"
-            >CSS Manipulation</a
-          >, and
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes" target="_blank" class="link"
-            >Directives</a
-          >
-          using only just attributes to handle user interactions, and build feature-rich web applications while working
-          within the familiar HTML structure.
+          <b>U</b>nscripted e<b>X</b>tended <b>M</b>arkup <b>L</b>anguage (<b>UXML</b>) is a lightweight, declarative, script-free,
+          component library designed for web development within HTML. UXML gives you the power of
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/REST" target="_blank" class="link"> REST</a>,
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent" target="_blank" class="link">Mouse Events</a>,
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement" target="_blank" class="link">Form Events</a>,
+          <a href="https://www.w3schools.com/angular/angular_databinding.asp" target="_blank" class="link">Data Binding</a>,
+          <a href="https://api.jquery.com/category/effects/" target="_blank" class="link">JQuery Effects</a>,
+          <a href="https://www.w3schools.com/jquery/jquery_css_classes.asp" target="_blank" class="link">CSS Manipulation</a>,
+          <a href="#" target="_blank" class="link">Components</a>, and
+          <a href="#" target="_blank" class="link"> Directives </a>
+          just using only plain HTML
+          <a href="#" target="_blank" class="link">attributes</a>. You can build a
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/SPA" target="_blank" class="link">single page applications</a>
+          (<b>SPA</b>) while working within the familiar HTML structure without coding a single line of JavaScript code.
+        </p>
+        <p class="paragraph">
+          UXML is incredibly lightweight, weighing in (<b>~3k min.js gzip'd</b>) size, no dependency, very extendable, compatible to all
+          major browser and 90% smaller than popular component libraries like
+          <a href="https://react.dev/" target="_blank" class="link">react</a>.
         </p>
       </article>
       <article class="article">
@@ -104,13 +93,13 @@
         <hr />
         <p class="paragraph">
           UXML uses a simple syntax <strong>$action="event:selector"</strong> similar on how we do a basic
-          <span class="highlighted">onclick="click()"</span> event handler in plain HTML. This syntax consists of
-          three(3) parts, a declaration <span class="highlighted">$action</span>, an assignment
-          <span class="highlighted">equals(=)</span> and a handler <span class="highlighted">"event:selector"</span>.
+          <span class="highlighted">onclick="click()"</span> event handler in plain HTML. This syntax consists of three(3) parts, a
+          declaration <span class="highlighted">$action</span>, an assignment <span class="highlighted">equals(=)</span> and a handler
+          <span class="highlighted">"event:selector"</span>.
         </p>
         <ul class="bullet-list">
-          <li class="bullet-item">A <strong>$</strong> sign to define/access for UXML</li>
-          <li class="bullet-item">A <strong>action</strong> to be performed on the selected element</li>
+          <li class="bullet-item">A <strong>$</strong> sign to define/access UXML <a href="#" target="_blank" class="link">Object</a></li>
+          <li class="bullet-item">A <strong>action</strong> to be performed on the selected HTML element</li>
           <li class="bullet-item">
             A <strong>event</strong> to emit an
             <a href="#event" target="_blank" class="link">UXMLEvent</a>
@@ -118,9 +107,8 @@
           </li>
           <li class="bullet-item">A <strong>colon(:)</strong> to separate event and selector</li>
           <li class="bullet-item">
-            A <strong>selector</strong> to <span class="highlighted">query</span> HTML elements or
-            <span class="highlighted">value</span> of a given event i.e. <span class="highlighted">url</span> for http
-            request
+            A <strong>selector</strong> to <span class="highlighted">query</span> HTML element(s) or pass a
+            <span class="highlighted">value</span> to a given event i.e. <span class="highlighted">url</span>
           </li>
         </ul>
       </article>
@@ -128,17 +116,17 @@
         <h2 class="header-1">Quick Start</h2>
         <hr />
         <p class="paragraph">Include the UXML library in your HTML document:</p>
-        <pre class="code-block">
-          <code class="language-html" data-prismjs-copy="Copy Code">
+        <pre class="sub-code">
+          <code class="language-html rounded" >
             &lt;script src="https://unpkg.com/uxml.js@0.1.0/uxml.js"&gt;&lt;/script&gt;
           </code>
         </pre>
         <p class="paragraph">
           Use UXML attributes within your HTML elements to use any
-          <a href="https://en.wikipedia.org/wiki/REST" target="_blank" class="link">REST</a> HTTP Protocol.
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/REST" target="_blank" class="link">REST</a> HTTP Protocol.
         </p>
-        <pre class="code-block">
-          <code class="language-html" data-prismjs-copy="Copy Code">
+        <pre class="sub-code">
+          <code class="language-html rounded" >
             &lt;body $load="get:/pages" $swap="innerHTML"&gt;
                 &lt;!-- Your HTML body --&gt;
             &lt;/body&gt;
@@ -146,24 +134,29 @@
         </pre>
       </article>
       <article class="article" id="event">
-        <h2 class="header-1">Events</h2>
+        <h2 class="header-1">Usage</h2>
         <hr />
         <p class="paragraph">
-          UXML provides a range of attributes to enhance interactivity, such as <strong>$click</strong>,
-          <strong>$submit</strong>, <strong>$load</strong>, <strong>$component</strong> and more. These attributes allow
-          you to define behaviors without the need for JavaScript code.
+          UXML provides a range of attributes to enhance interactivity, such as <strong>$click</strong>, <strong>$submit</strong>,
+          <strong>$load</strong>, <strong>$component</strong> and more. These attributes allow you to define behaviors without the need for
+          JavaScript code.
         </p>
-        <pre class="code-block">
-          <code class="language-html" data-prismjs-copy="Copy Code">
-            &lt;button $click="show:#hello"&gt;Show message!&lt;/button&gt;
-            &lt;div id="hello">Hello, UXML!&lt;/div&gt;
+
+        <pre class="sub-code">
+          <code class="language-html rounded" >
+            &lt;button $click="show:#hello"&gt;Say Hello!&lt;/button&gt;
+            &lt;div id="hello"&gt;Hello, UXML!&lt;/div&gt;
           </code>
         </pre>
       </article>
     </main>
     <footer class="footer">
-      <i class="qoute">"Everything should be as simple as possible, but not simpler." </i>
-      <span>Albert Einstein</span>
+      <i class="quote">"Everything should be as simple as possible, but not simpler." </i>
+      <span class="author">Albert Einstein</span>
+      <a href="#" class="brand-white">
+        <img src="images/logo.png" class="tw-h-16" alt="UXML Brand Logo" />
+      </a>
+      <span class="copyright">UXML 2023</span>
     </footer>
   </body>
 </html>

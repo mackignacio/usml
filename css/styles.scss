@@ -7,6 +7,7 @@
   position: sticky;
   top: 0px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 1;
 
   .navbar-container {
     @apply tw-max-w-screen-xl tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-mx-auto tw-py-4 md:tw-px-36;
@@ -52,17 +53,21 @@
     }
 
     .paragraph {
-      @apply tw-my-4;
+      @apply tw-my-4 tw-text-justify;
       line-height: 1.75rem;
     }
 
     .highlighted {
-      @apply tw-bg-gray-300 tw-font-medium tw-px-2 tw-rounded-md;
+      @apply tw-bg-green-300 tw-font-medium tw-px-2 tw-rounded-md;
       padding-bottom: 0.2rem;
     }
 
-    .code-block {
-      @apply tw-p-0 tw-py-2 tw-rounded-md tw-flex tw-items-center tw-justify-start;
+    .sub-code {
+      @apply tw-rounded-md tw-flex;
+    }
+
+    .rounded {
+      @apply tw-rounded-md tw-w-full;
     }
 
     .bullet-list {
@@ -78,9 +83,21 @@
 }
 
 .footer {
-  @apply tw-bg-green-600 tw-w-full tw-h-40 tw-mt-20 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white;
+  @apply tw-bg-emerald-900 tw-w-full tw-h-64 tw-mt-20 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white;
 
-  .qoute {
-    @apply tw-font-medium tw-text-lg;
+  .quote {
+    @apply tw-font-light tw-text-xl;
+  }
+
+  .author {
+    @apply tw-text-sm;
+  }
+
+  .brand-white {
+    @apply tw-flex tw-items-center tw-pt-6;
+  }
+
+  .copyright {
+    @apply tw-text-xs tw-mt-2;
   }
 }

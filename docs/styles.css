@@ -554,6 +554,10 @@ video {
   display: flex;
 }
 
+.tw-h-16 {
+  height: 4rem;
+}
+
 .tw-h-5 {
   height: 1.25rem;
 }
@@ -605,6 +609,7 @@ video {
   position: sticky;
   top: 0px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 1;
   .navbar-container {
     margin-left: auto;
     margin-right: auto;
@@ -1044,6 +1049,9 @@ video {
       margin-bottom: 1rem;
     }
     .paragraph {
+      text-align: justify;
+    }
+    .paragraph {
       line-height: 1.75rem;
     }
     .highlighted {
@@ -1051,7 +1059,7 @@ video {
     }
     .highlighted {
       --tw-bg-opacity: 1;
-      background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+      background-color: rgb(134 239 172 / var(--tw-bg-opacity));
     }
     .highlighted {
       padding-left: 0.5rem;
@@ -1063,24 +1071,17 @@ video {
     .highlighted {
       padding-bottom: 0.2rem;
     }
-    .code-block {
+    .sub-code {
       display: flex;
     }
-    .code-block {
-      align-items: center;
-    }
-    .code-block {
-      justify-content: flex-start;
-    }
-    .code-block {
+    .sub-code {
       border-radius: 0.375rem;
     }
-    .code-block {
-      padding: 0px;
+    .rounded {
+      width: 100%;
     }
-    .code-block {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+    .rounded {
+      border-radius: 0.375rem;
     }
     .bullet-list {
       list-style-type: disc;
@@ -1105,20 +1106,40 @@ video {
 .footer {
   margin-top: 5rem;
   display: flex;
-  height: 10rem;
+  height: 16rem;
   width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
-  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+  background-color: rgb(6 78 59 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  .qoute {
-    font-size: 1.125rem;
+  .quote {
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
-  .qoute {
-    font-weight: 500;
+  .quote {
+    font-weight: 300;
+  }
+  .author {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .brand-white {
+    display: flex;
+  }
+  .brand-white {
+    align-items: center;
+  }
+  .brand-white {
+    padding-top: 1.5rem;
+  }
+  .copyright {
+    margin-top: 0.5rem;
+  }
+  .copyright {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
