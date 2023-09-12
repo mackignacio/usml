@@ -75,6 +75,10 @@
       list-style-position: inside;
       @apply tw-pl-6;
     }
+
+    &.tagline {
+      @apply tw-flex tw-items-center tw-justify-center tw-h-96;
+    }
   }
 }
 
@@ -83,7 +87,7 @@
 }
 
 .footer {
-  @apply tw-bg-emerald-900 tw-w-full tw-h-64 tw-mt-20 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white;
+  @apply tw-bg-emerald-900 tw-w-full tw-h-64 tw-mt-10 tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white;
 
   .quote {
     @apply tw-font-light tw-text-xl;

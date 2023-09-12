@@ -27,7 +27,7 @@
     </style>
     <link href="styles.css" rel="stylesheet" />
   </head>
-  <body class="tw-h-full tw-w-full tw-bg-gray-100 tw-m-0 tw-p-0">
+  <body class="tw-h-full tw-w-full tw-bg-slate-50 tw-m-0 tw-p-0">
     <nav class="navbar">
       <div class="navbar-container">
         <a href="#" class="tw-flex tw-items-center">
@@ -94,8 +94,7 @@
         <p class="paragraph">
           UXML uses a simple syntax <strong>$action="event:selector"</strong> similar on how we do a basic
           <span class="highlighted">onclick="click()"</span> event handler in plain HTML. This syntax consists of three(3) parts, a
-          declaration <span class="highlighted">$action</span>, an assignment <span class="highlighted">equals(=)</span> and a handler
-          <span class="highlighted">"event:selector"</span>.
+          declaration <b>$action</b>, an assignment <b>equals(=)</b> and a handler <b>"event:selector"</b>.
         </p>
         <ul class="bullet-list">
           <li class="bullet-item">A <strong>$</strong> sign to define/access UXML <a href="#" target="_blank" class="link">Object</a></li>
@@ -103,12 +102,12 @@
           <li class="bullet-item">
             A <strong>event</strong> to emit an
             <a href="#event" target="_blank" class="link">UXMLEvent</a>
-            or trigger an <span class="highlighted">http</span> request
+            or trigger an <b>http</b> request
           </li>
           <li class="bullet-item">A <strong>colon(:)</strong> to separate event and selector</li>
           <li class="bullet-item">
-            A <strong>selector</strong> to <span class="highlighted">query</span> HTML element(s) or pass a
-            <span class="highlighted">value</span> to a given event i.e. <span class="highlighted">url</span>
+            A <strong>selector</strong> to query HTML element(s) <span class="highlighted">#navbar</span> or pass a value to a given event
+            <span class="highlighted">/users</span>
           </li>
         </ul>
       </article>
@@ -148,6 +147,9 @@
             &lt;div id="hello"&gt;Hello, UXML!&lt;/div&gt;
           </code>
         </pre>
+      </article>
+      <article class="article tagline">
+        <img src="images/tagline.png" class="tw-w-11/12" alt="UXML Brand Logo" />
       </article>
     </main>
     <footer class="footer">
